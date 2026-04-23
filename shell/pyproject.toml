@@ -1,0 +1,8 @@
+[project]
+name = "dify-shell-plugin"
+version = "0.0.1"
+description = "A Dify plugin that executes shell commands with security controls"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "dify-plugin",
+]

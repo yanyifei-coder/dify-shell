@@ -1,0 +1,52 @@
+identity:
+  name: shell_command
+  author: dify-shell
+  label:
+    en_US: Shell Command
+    zh_Hans: 执行命令
+description:
+  human:
+    en_US: Execute a shell command and return the output
+    zh_Hans: 执行 Shell 命令并返回输出结果
+  llm: A tool that executes a shell command on the system and returns stdout, stderr, and exit code. Use this to run CLI commands, scripts, or system utilities.
+parameters:
+  - name: command
+    type: string
+    required: true
+    label:
+      en_US: Command
+      zh_Hans: 命令
+    human_description:
+      en_US: The command to execute (e.g. ls, cat, echo)
+      zh_Hans: 要执行的命令（如 ls, cat, echo）
+    llm_description: The shell command name to execute, such as "ls", "cat", "echo", "grep", "find", "pwd", "wc", "head", "tail"
+    form: llm
+  - name: args
+    type: string
+    required: false
+    label:
+      en_US: Arguments
+      zh_Hans: 参数
+    human_description:
+      en_US: Arguments for the command
+      zh_Hans: 命令的参数
+    llm_description: The arguments to pass to the command. For example, if command is "ls", args could be "-la /tmp"
+    form: llm
+output_schema:
+  type: object
+  properties:
+    stdout:
+      type: string
+      description: "The standard output of the command"
+    stderr:
+      type: string
+      description: "The standard error output of the command"
+    exit_code:
+      type: integer
+      description: "The exit code of the command (0 means success)"
+    command:
+      type: string
+      description: "The full command that was executed"
+extra:
+  python:
+    source: tools/shell_command.py

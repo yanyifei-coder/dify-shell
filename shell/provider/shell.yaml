@@ -1,0 +1,66 @@
+identity:
+  author: dify-shell
+  name: shell
+  label:
+    en_US: Shell
+    zh_Hans: 命令行
+  description:
+    en_US: Execute shell commands and return results
+    zh_Hans: 执行 Shell 命令并返回结果
+  icon: icon.svg
+  tags:
+    - utilities
+credentials_for_provider:
+  allowed_commands:
+    type: text-input
+    required: false
+    label:
+      en_US: Allowed Commands
+      zh_Hans: 允许的命令
+    placeholder:
+      en_US: "Comma-separated list, e.g.: ls,cat,pwd,echo,grep,find"
+      zh_Hans: "逗号分隔，如：ls,cat,pwd,echo,grep,find"
+    help:
+      en_US: If set, only these commands are allowed. Leave empty to allow all (except blocked).
+      zh_Hans: 如果设置，仅允许这些命令。留空则允许所有命令（除黑名单外）。
+  blocked_commands:
+    type: text-input
+    required: false
+    label:
+      en_US: Blocked Commands
+      zh_Hans: 禁止的命令
+    placeholder:
+      en_US: "Comma-separated list, e.g.: rm,sudo,chmod,dd,mkfs"
+      zh_Hans: "逗号分隔，如：rm,sudo,chmod,dd,mkfs"
+    help:
+      en_US: Commands that are always blocked. Defaults to dangerous commands if empty.
+      zh_Hans: 始终禁止的命令。留空则使用默认黑名单。
+  working_directory:
+    type: text-input
+    required: false
+    label:
+      en_US: Working Directory
+      zh_Hans: 工作目录
+    placeholder:
+      en_US: "/tmp"
+      zh_Hans: "/tmp"
+    help:
+      en_US: Default working directory for command execution. Defaults to /tmp.
+      zh_Hans: 命令执行的默认工作目录。默认为 /tmp。
+  timeout:
+    type: text-input
+    required: false
+    label:
+      en_US: Timeout (seconds)
+      zh_Hans: 超时时间（秒）
+    placeholder:
+      en_US: "30"
+      zh_Hans: "30"
+    help:
+      en_US: Maximum execution time in seconds. Defaults to 30.
+      zh_Hans: 最大执行时间（秒）。默认为 30。
+tools:
+  - tools/shell_command.yaml
+extra:
+  python:
+    source: provider/shell.py

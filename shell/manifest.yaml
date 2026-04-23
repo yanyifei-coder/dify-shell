@@ -1,0 +1,32 @@
+version: 0.0.1
+type: plugin
+author: dify-shell
+name: shell
+label:
+  en_US: Shell
+  zh_Hans: 命令行
+description:
+  en_US: Execute shell commands and return results with security controls
+  zh_Hans: 执行 Shell 命令并返回结果，支持安全控制
+created_at: 2026-04-23T00:00:00.000000000Z
+icon: icon.svg
+resource:
+  memory: 1048576
+  permission:
+    tool:
+      enabled: true
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/shell.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
