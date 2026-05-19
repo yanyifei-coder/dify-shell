@@ -1,6 +1,6 @@
 identity:
   name: shell_command
-  author: dify-shell
+  author: yanyifei-coder
   label:
     en_US: Shell Command
     zh_Hans: 执行命令
